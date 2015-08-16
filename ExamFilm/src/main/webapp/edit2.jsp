@@ -38,6 +38,7 @@
 		ResultSet rs = st.executeQuery(sql);
 		rs.next();	
 		out.print("<form action='HandleEdit'>");
+		out.print("film_id:<input type='text' name='film_id' value='"+rs.getString(1)+"' readonly><br>");
 		out.print("title:<input type='text' name='title' value='"+rs.getString(2)+"'><br>");
 		out.print("description:<input type='text' name='description' value='"+rs.getString(3)+"'><br>");
 		out.print("Language:<select name='language'>");
@@ -48,6 +49,7 @@
 		out.print("language<option>French</option>");
 		out.print("language<option>German</option>");
 		out.print("<br><input type='submit'>");
+		out.print("</form>");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

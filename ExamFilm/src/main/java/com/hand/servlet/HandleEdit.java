@@ -34,7 +34,7 @@ public class HandleEdit extends HttpServlet {
 		String title = request.getParameter("title");
 		String description = request.getParameter("description");
 		String language = request.getParameter("language");
-		String film_id=request.getParameter("edit_id");
+		String film_id=request.getParameter("film_id");
 		int language_id=0;
 		if(language.equals("English")) language_id=1;
 		if(language.equals("Italian")) language_id=2;
@@ -44,7 +44,10 @@ public class HandleEdit extends HttpServlet {
 		if(language.equals("German")) language_id=6;
 		try {
 			Statement st = conn.createStatement();
-			String sql = "update film set title = '"+title+"',description='"+description+"',language_id="+language_id+" where film_id="+film_id;
+			System.out.println(film_id);
+			//String sql = "update film set title = '"+title+"',description='"+description+"',language_id="+language_id+" where film_id="+film_id;
+			String sql = "update film set title = '"+title+"',description = '"+description+"',language_id="+language_id+" where film_id="+film_id;
+
 			st.execute(sql);
 			conn.close();
 			RequestDispatcher rd = request.getRequestDispatcher("editsuccess.jsp");

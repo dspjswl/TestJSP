@@ -31,7 +31,7 @@ public class HandleDelete extends HttpServlet {
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection conn = getConnection();
-		String film_id=request.getParameter("edit_id");
+		String film_id=request.getParameter("delete_id_id");
 
 		try {
 			Statement st = conn.createStatement();
