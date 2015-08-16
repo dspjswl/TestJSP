@@ -1,0 +1,4 @@
+1.数据库用户名为root，密码无
+2.命令行中输入mvn compile后回车
+3.输入mvn tomcat:run回车
+4.登录浏览器，键入localhost:8080/ExamFilm/index.jsp 
