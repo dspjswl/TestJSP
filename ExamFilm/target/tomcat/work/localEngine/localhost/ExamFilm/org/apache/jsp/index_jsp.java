@@ -40,7 +40,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 
     try {
-      response.setContentType("text/html; charset=UTF-8");
+      response.setContentType("text/html");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -50,23 +50,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n");
       out.write("<html>\r\n");
-      out.write("<head>\r\n");
-      out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("<title>电影租赁系统</title>\r\n");
-      out.write("</head>\r\n");
-      out.write("<body bgcolor=\"cyan\">\r\n");
-      out.write("<center>\r\n");
-      out.write("\t<h1>电影租赁系统</h4>\r\n");
-      out.write("\t<a href=\"login.jsp\">登录</a>\r\n");
-      out.write("\t<a href=\"HandleShowList\">显示列表</a>\r\n");
-      out.write("\t\r\n");
-      out.write("\t<table>\r\n");
-      out.write("\t\t<tr id=\"1\"></tr>\r\n");
-      out.write("\t</table>\r\n");
-      out.write("</center>\r\n");
+      out.write("<body>\r\n");
+      out.write("<h2>Hello World!</h2>\r\n");
       out.write("</body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
