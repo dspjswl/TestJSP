@@ -9,23 +9,9 @@ import java.sql.SQLException;
 import java.sql.DriverManager;
 import java.sql.Connection;
 
-public final class List_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class delete2_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
- 
-	public static Connection getConnection(){
-		Connection con = null;
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","root","");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}		
-		return con;
-	}	
-	
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List _jspx_dependants;
@@ -80,48 +66,11 @@ public final class List_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\r\n");
       out.write("<head>\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("<title>Insert title here</title>\r\n");
+      out.write("<title>删除信息</title>\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
-      out.write("\t<center> \r\n");
-      out.write("\t");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\t");
-
-	Connection conn =  getConnection();
-	StringBuffer str = new StringBuffer();
-	try {
-		Statement st = conn.createStatement();
-		String sql = "SELECT film_id,title,description,language.name  FROM film left join language on film.language_id=language.language_id limit 0,2000";
-		ResultSet rs = st.executeQuery(sql);
-			out.print("<table border=2>");
-			out.print("<tr>");
-			out.print("<td>id</td>"); 
-			out.print("<td>Title</td>");
-	      	out.print("<td>Description</td>");
-	      	out.print("<td>Language</td>");
-	      	out.print("<td><a href='insert.jsp'>新增</a></td>");
-	      	out.print("</tr>");
-			while(rs.next()){
-					out.print("<tr>");
-					out.print("<td>"+rs.getInt(1)+"</td>"); 
-					out.print("<td>"+rs.getString(2)+"</td>");
-	              out.print("<td>"+rs.getString(3)+"</td>");
-	              out.print("<td>"+rs.getString(4)+"</td>");
-	              out.print("<td><a href='edit.jsp'>编辑</a></td>");
-	              out.print("<td><a href='delete.jsp'>删除</a></td>");
-	              out.print("</tr>");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	
-	
-      out.write('\r');
-      out.write('\n');
-      out.write('	');
-      out.write("\r\n");
+      out.write("\t<center>\r\n");
+      out.write("\t\t<a href=\"List.jsp\">删除成功!点此返回列表</a>\r\n");
       out.write("\t</center>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");

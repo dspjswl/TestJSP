@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>电影租赁系统</title>
+<title>编辑页面1</title>
 </head>
-<body bgcolor="cyan">
-<center>
-	<h1>电影租赁系统</h4>
-	<a href="login.jsp">登录</a>
-	<a href="HandleShowList">显示列表</a>
-</center>
+<body>
+	<form action="HandleDelete">
+	请输入您要删除的电影id:
+		<input type="text" name="delete_id"> 
+		<input type="submit">
+	</form>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<center> 
+	<center>
 	<%! 
 	public static Connection getConnection(){
 		Connection con = null;
@@ -28,38 +28,31 @@
 		return con;
 	}	
 	%>
-
 	<%
 	Connection conn =  getConnection();
 	StringBuffer str = new StringBuffer();
+	String edit_id = request.getParameter("edit_id");
 	try {
 		Statement st = conn.createStatement();
-		String sql = "SELECT film_id,title,description,language.name  FROM film left join language on film.language_id=language.language_id limit 0,2000";
+		String sql = "SELECT film_id,title,description,language.name  FROM film left join language on film.language_id=language.language_id where film_id ="+edit_id;
 		ResultSet rs = st.executeQuery(sql);
-			out.print("<table border=2>");
-			out.print("<tr>");
-			out.print("<td>id</td>"); 
-			out.print("<td>Title</td>");
-	      	out.print("<td>Description</td>");
-	      	out.print("<td>Language</td>");
-	      	out.print("<td><a href='insert.jsp'>新增</a></td>");
-	      	out.print("</tr>");
-			while(rs.next()){
-					out.print("<tr>");
-					out.print("<td>"+rs.getInt(1)+"</td>"); 
-					out.print("<td>"+rs.getString(2)+"</td>");
-	              out.print("<td>"+rs.getString(3)+"</td>");
-	              out.print("<td>"+rs.getString(4)+"</td>");
-	              out.print("<td><a href='edit.jsp'>编辑</a></td>");
-	              out.print("<td><a href='delete.jsp'>删除</a></td>");
-	              out.print("</tr>");
-			}
+		rs.next();	
+		out.print("<form action='HandleEdit'>");
+		out.print("title:<input type='text' name='title' value='"+rs.getString(2)+"'><br>");
+		out.print("description:<input type='text' name='description' value='"+rs.getString(3)+"'><br>");
+		out.print("Language:<select name='language'>");
+		out.print("language<option>English</option>");
+		out.print("language<option>Italian</option>");
+		out.print("language<option>Japanese</option>");
+		out.print("language<option>Mandarin</option>");
+		out.print("language<option>French</option>");
+		out.print("language<option>German</option>");
+		out.print("<br><input type='submit'>");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	
 	%>
-	<%-- 	<jsp:getProperty name="show" property="result"/> --%>
 	</center>
 </body>
 </html>

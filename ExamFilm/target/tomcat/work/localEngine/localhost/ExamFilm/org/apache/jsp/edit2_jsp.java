@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.DriverManager;
 import java.sql.Connection;
 
-public final class List_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class edit2_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
  
@@ -83,44 +83,36 @@ public final class List_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<title>Insert title here</title>\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
-      out.write("\t<center> \r\n");
+      out.write("\t<center>\r\n");
       out.write("\t");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\t");
+      out.write('\r');
+      out.write('\n');
+      out.write('	');
 
 	Connection conn =  getConnection();
 	StringBuffer str = new StringBuffer();
+	String edit_id = request.getParameter("edit_id");
 	try {
 		Statement st = conn.createStatement();
-		String sql = "SELECT film_id,title,description,language.name  FROM film left join language on film.language_id=language.language_id limit 0,2000";
+		String sql = "SELECT film_id,title,description,language.name  FROM film left join language on film.language_id=language.language_id where film_id ="+edit_id;
 		ResultSet rs = st.executeQuery(sql);
-			out.print("<table border=2>");
-			out.print("<tr>");
-			out.print("<td>id</td>"); 
-			out.print("<td>Title</td>");
-	      	out.print("<td>Description</td>");
-	      	out.print("<td>Language</td>");
-	      	out.print("<td><a href='insert.jsp'>新增</a></td>");
-	      	out.print("</tr>");
-			while(rs.next()){
-					out.print("<tr>");
-					out.print("<td>"+rs.getInt(1)+"</td>"); 
-					out.print("<td>"+rs.getString(2)+"</td>");
-	              out.print("<td>"+rs.getString(3)+"</td>");
-	              out.print("<td>"+rs.getString(4)+"</td>");
-	              out.print("<td><a href='edit.jsp'>编辑</a></td>");
-	              out.print("<td><a href='delete.jsp'>删除</a></td>");
-	              out.print("</tr>");
-			}
+		rs.next();	
+		out.print("<form action='HandleEdit'>");
+		out.print("title:<input type='text' name='title' value='"+rs.getString(2)+"'><br>");
+		out.print("description:<input type='text' name='description' value='"+rs.getString(3)+"'><br>");
+		out.print("Language:<select name='language'>");
+		out.print("language<option>English</option>");
+		out.print("language<option>Italian</option>");
+		out.print("language<option>Japanese</option>");
+		out.print("language<option>Mandarin</option>");
+		out.print("language<option>French</option>");
+		out.print("language<option>German</option>");
+		out.print("<br><input type='submit'>");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	
 	
-      out.write('\r');
-      out.write('\n');
-      out.write('	');
       out.write("\r\n");
       out.write("\t</center>\r\n");
       out.write("</body>\r\n");

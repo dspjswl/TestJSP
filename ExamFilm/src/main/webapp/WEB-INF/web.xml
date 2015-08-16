@@ -4,4 +4,53 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
+  <servlet>
+    <servlet-name>CheckUserInfoServlet</servlet-name>
+    <servlet-class>com.hand.servlet.CheckUserInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>HandleShowList</servlet-name>
+  	<display-name>HandleShowList</display-name>
+  	<description></description>
+  	<servlet-class>com.hand.servlet.HandleShowList</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>HandleInsert</servlet-name>
+  	<display-name>HandleInsert</display-name>
+  	<description></description>
+  	<servlet-class>com.hand.servlet.HandleInsert</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>HandleEdit</servlet-name>
+  	<display-name>HandleEdit</display-name>
+  	<description></description>
+  	<servlet-class>com.hand.servlet.HandleEdit</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>HandleDelete</servlet-name>
+  	<display-name>HandleDelete</display-name>
+  	<description></description>
+  	<servlet-class>com.hand.servlet.HandleDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckUserInfoServlet</servlet-name>
+    <url-pattern>/helpcheck</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HandleShowList</servlet-name>
+  	<url-pattern>/HandleShowList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HandleInsert</servlet-name>
+  	<url-pattern>/HandleInsert</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HandleEdit</servlet-name>
+  	<url-pattern>/HandleEdit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HandleDelete</servlet-name>
+  	<url-pattern>/HandleDelete</url-pattern>
+  </servlet-mapping>
 </web-app>
